@@ -46,6 +46,25 @@ public class EmployeeSerivceImpl implements EmployeeService {
 		return employeeMapper.getEmployees(search);
 	}
 	
+	public List<Map<String, Object>> takeEmployees(Map<String, Object> search){
+		if(search ==null) {
+			throw new IllegalArgumentException("Map은 null을 허용하지 않습니다.");
+		}
+		return employeeMapper.takeEmployees(search);
+	}
+
+	public List<Employee> fetchEmployees(Criteria c) {
+		if(c == null) {
+			throw new IllegalArgumentException("Criteria는 null을 허용하지 않습니다.");
+		}
+		return employeeMapper.fetchEmployees(c);
+	}
+
+	public void updateEmployee(Employee employee) {
+		employeeMapper.updateEmployee(employee);
+	}
 	
+	
+		
 	
 }
