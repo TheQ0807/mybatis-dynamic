@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.sample.damo.vo.Criteria;
 import com.sample.damo.vo.Employee;
 
 
@@ -48,5 +49,17 @@ public class EmployeeServiceTests {
 		result = employeeService.searchEmployees(employee);
 		assertEquals(5, result.size());
 	}
+	
+	@Test
+	public void testFindEmployees() {
+		Criteria c = new Criteria();
+		c.setOpt("job");
+		c.setKeyword("SA_MAN");
+		
+		List<Employee> result = employeeService.findEmployees(c);
+		assertEquals(5, result.size());
+	}
+	
+	
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sample.damo.exception.EmptyResultException;
 import com.sample.damo.mappers.EmployeeMapper;
+import com.sample.damo.vo.Criteria;
 import com.sample.damo.vo.Employee;
 
 @Service
@@ -25,4 +26,16 @@ public class EmployeeSerivceImpl implements EmployeeService {
 		}
 		return employees;
 	}
+
+	public List<Employee> findEmployees(Criteria c) {
+		if(c == null) {
+			throw new IllegalArgumentException("Criteria는 null을 허용하지 않습니다.");
+		}
+		//List<Employee> employees = employeeMapper.findEmployees(c);
+		//return employees;
+		return employeeMapper.findEmployees(c);
+	}
+	
+	
+	
 }

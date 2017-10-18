@@ -72,7 +72,21 @@
 			department_id		as departmentId
 		from
 			employees
-			
+		<where>
+			<if test="opt != null and keyword != null">
+				<choose>
+					<when test="opt == 'name'">
+						first_name = #{keyword}
+					</when>
+					<when test="opt == 'job'">
+						job_id = #{keyword}
+					</when>
+					<when test="opt == 'dept'">
+						department_id = #{keyword}
+					</when>
+				</choose>
+			</if>
+		</where>
 			
 	</select>
 	
