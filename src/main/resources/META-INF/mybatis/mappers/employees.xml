@@ -87,7 +87,31 @@
 				</choose>
 			</if>
 		</where>
-			
+	</select>
+	
+	<select id="getEmployees" parameterType="map" resultType="Employee">
+		select
+			employee_id			as id,
+			first_name			as firstName,
+			last_name			as lastName,
+			phone_number		as phoneNumber,
+			email,
+			hire_date			as hireDate,
+			job_id				as	jobId,
+			salary,
+			commission_pct		as commissionPct,
+			manager_id			as managerId,
+			department_id		as departmentId
+		from
+			employees
+			<where>
+				<if test="job != null">
+					and job_id = #{job}
+				</if>
+				<if test="dept != null">
+					and department_id = #{dept}
+				</if>
+			</where>
 	</select>
 	
 </mapper>

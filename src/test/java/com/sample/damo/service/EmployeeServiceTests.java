@@ -2,7 +2,9 @@ package com.sample.damo.service;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.*;
 
@@ -57,6 +59,15 @@ public class EmployeeServiceTests {
 		c.setKeyword("SA_MAN");
 		
 		List<Employee> result = employeeService.findEmployees(c);
+		assertEquals(5, result.size());
+	}
+	
+	public void testGetEmployees() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("job", "SA_MAN");
+		map.put("dept", 80);
+		
+		List<Employee> result = employeeService.getEmployees(map);
 		assertEquals(5, result.size());
 	}
 	

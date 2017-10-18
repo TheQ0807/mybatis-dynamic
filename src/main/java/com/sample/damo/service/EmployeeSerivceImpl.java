@@ -1,6 +1,7 @@
 package com.sample.damo.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,15 @@ public class EmployeeSerivceImpl implements EmployeeService {
 		//List<Employee> employees = employeeMapper.findEmployees(c);
 		//return employees;
 		return employeeMapper.findEmployees(c);
+	}
+	
+	public List<Employee> getEmployees(Map<String, Object> search) {
+		if(search == null) {
+			throw new IllegalArgumentException("Map은 null을 허용하지 않습니다.");
+		}
+		//List<Employee> employees = employeeMapper.findEmployees(c);
+		//return employees;
+		return employeeMapper.getEmployees(search);
 	}
 	
 	
