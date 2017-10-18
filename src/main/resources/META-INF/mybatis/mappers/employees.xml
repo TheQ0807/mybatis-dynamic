@@ -72,6 +72,8 @@
 			department_id		as departmentId
 		from
 			employees
+			
+			
 	</select>
 	
 </mapper>
